@@ -1,7 +1,7 @@
 # Accuracy
 
-| NN | Loss | Acc |
-|----|------|-----|
-|DNNet|Contrastive|78.7%|
-|DNNet|Arcface|83.1%|
-|DNNet|Con+Arc|85.6%|
+| NN | Backbone | Loss | Acc |
+|----|------|-----|-----|
+|DNNet|ResNet50|Contrastive|78.7%|
+|DNNet|ResNet50|Arcface|83.1%|
+|DNNet|ResNet152|Con+Arc|85.6%|
