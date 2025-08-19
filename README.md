@@ -4,3 +4,4 @@
 |----|------|-----|
 |DNNet|Contrastive|78.7%|
 |DNNet|Arcface|83.1%|
+|DNNet|Con+Arc|85.6%|
