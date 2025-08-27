@@ -1,6 +1,6 @@
 # Accuracy
 
-epoch = 32, dataset 2000 pairs
+(Not use) epoch = 32, dataset 2000 pairs(negative pairs not the same ;-;)
 
 | NN | Backbone | Loss | Acc |
 |----|------|-----|-----|
@@ -15,7 +15,7 @@ epoch = 32, dataset 2000 pairs
 |DNNet|ResNet50|Con+Soft| 85.1% |
 |DNNet|ResNet152|Con+Soft| 84.0% |
 
-epoch = 200, dataset 10340 pairs
+epoch = 200, dataset 10340 pairs, 350 id, + pairs == - pairs
 
 | NN | Backbone | Loss | Acc |
 |----|------|-----|-----|
@@ -23,3 +23,12 @@ epoch = 200, dataset 10340 pairs
 |DNNet|ResNet50|Con+Arc|84.8%|
 |DNNet|ResNet50|Soft triplet| 85.9% |
 |DNNet|ResNet50|Con+Soft| 82.2% |
+
+# Accuracy classification
+
+epoch = 200, dataset 8400 pairs, 350 id, + pairs == (- pairs) * 3
+
+| NN | Backbone | Loss | Acc | Class Acc |
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Arcface| 86.4%| 65.0% |
+|DNNet|ResNet50|Con+Arc|84.1%|54.5%|
