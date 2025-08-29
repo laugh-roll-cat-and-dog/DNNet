@@ -26,9 +26,11 @@ epoch = 200, dataset 10340 pairs, 350 id, + pairs == - pairs
 
 # Accuracy classification
 
-epoch = 200, dataset 8400 pairs, 350 id, + pairs == (- pairs) * 3
+epoch = 200, dataset 8400 pairs, 350 id, (+ pairs) * 3 == - pairs
 
-| NN | Backbone | Loss | Acc | Class Acc |
-|----|------|-----|-----|----|
-|DNNet|ResNet50|Arcface| 86.4%| 65.0% |
-|DNNet|ResNet50|Con+Arc|84.1%|54.5%|
+| NN | Backbone | Loss | Acc | Class Acc | Err Acc|
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Arcface| 86.4%| 65.0% | 83.7% |
+|DNNet|ResNet50|Con+Arc|84.1%|54.5%| 81.5% |
+|DNNet|ResNet50|Magface| 83.8%| % | 81.2% |
+|DNNet|ResNet50|Con+Mag|81.7%|%| 78.7%|
