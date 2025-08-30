@@ -44,3 +44,12 @@ epoch = 100, dataset 7530 images, 1500 id, batch size = 32
 |DNNet|ResNet50|Arc+Focal| 85.9%|  83.6% |
 |DNNet|ResNet50|Magface| 86.3%|  83.5%|
 |DNNet|ResNet50|Mag+Focal| 86.1%| 83.6%|
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 64
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Arcface| 87.1%| 84.2% |
+|DNNet|ResNet50|Arc+Focal| 85.5%|  84.2% |
+|DNNet|ResNet50|Magface| 85.2%|  81.7%|
+|DNNet|ResNet50|Mag+Focal| 86.7%| 82.5%|
