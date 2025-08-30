@@ -32,5 +32,15 @@ epoch = 200, dataset 8400 pairs, 350 id, (+ pairs) * 3 == - pairs
 |----|------|-----|-----|----|---|
 |DNNet|ResNet50|Arcface| 86.4%| 65.0% | 83.7% |
 |DNNet|ResNet50|Con+Arc|84.1%|54.5%| 81.5% |
-|DNNet|ResNet50|Magface| 83.8%| % | 81.2% |
-|DNNet|ResNet50|Con+Mag|81.7%|%| 78.7%|
+|DNNet|ResNet50|Magface| 83.8%| 58.9% | 81.2% |
+|DNNet|ResNet50|Con+Mag|81.7%|45.0%| 78.7%|
+|DNNet|ResNet50|Mag+Focal|86.0%|59.8%| 84.0%|
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 32
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Arcface| 87.5%| 85.7% |
+|DNNet|ResNet50|Arc+Focal| 85.9%|  83.6% |
+|DNNet|ResNet50|Magface| 86.3%|  83.5%|
+|DNNet|ResNet50|Mag+Focal| 86.1%| 83.6%|
