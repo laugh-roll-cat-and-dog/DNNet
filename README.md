@@ -36,14 +36,33 @@ epoch = 200, dataset 8400 pairs, 350 id, (+ pairs) * 3 == - pairs
 |DNNet|ResNet50|Con+Mag|81.7%|45.0%| 78.7%|
 |DNNet|ResNet50|Mag+Focal|86.0%|59.8%| 84.0%|
 
+# Test batch size
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Arcface| 85.9%| 84.6% |
+|DNNet|ResNet50|Arc+Soft| 87.4%| 86.6% |
+|DNNet|ResNet50|Arc+Focal| 86.3%|  84.0% |
+|DNNet|ResNet50|Arc+Focal+Soft| 85.9%|  84.0% |
+|DNNet|ResNet50|Magface| 86.0%|  84.0%|
+|DNNet|ResNet50|Mag+Soft| 84.9%| 83.4% |
+|DNNet|ResNet50|Mag+Focal| 86.2%| 84.0%|
+|DNNet|ResNet50|Mag+Focal+Soft| 86.3%|  82.0% |
+
 epoch = 100, dataset 7530 images, 1500 id, batch size = 32
 
 | NN | Backbone | Loss | Acc  | Err Acc|
 |----|------|-----|-----|----|
 |DNNet|ResNet50|Arcface| 87.5%| 85.7% |
+|DNNet|ResNet50|Arc+Soft| 86.4%| 85.2% |
 |DNNet|ResNet50|Arc+Focal| 85.9%|  83.6% |
+|DNNet|ResNet50|Arc+Focal+Soft| 86.2%|  83.1% |
 |DNNet|ResNet50|Magface| 86.3%|  83.5%|
+|DNNet|ResNet50|Mag+Soft| 86.5%| 83.6% |
 |DNNet|ResNet50|Mag+Focal| 86.1%| 83.6%|
+|DNNet|ResNet50|Mag+Focal+Soft| 85.4%|  83.0% |
 
 epoch = 100, dataset 7530 images, 1500 id, batch size = 64
 
@@ -58,7 +77,54 @@ epoch = 100, dataset 7530 images, 1500 id, batch size = 128
 
 | NN | Backbone | Loss | Acc  | Err Acc|
 |----|------|-----|-----|----|
-|DNNet|ResNet50|Arcface| %| % |
-|DNNet|ResNet50|Arc+Focal| %|  % |
-|DNNet|ResNet50|Magface| %|  %|
-|DNNet|ResNet50|Mag+Focal| %| %|
+|DNNet|ResNet50|Arcface| 85.2%| 82.9% |
+|DNNet|ResNet50|Arc+Focal| 85.7%|  82.4% |
+|DNNet|ResNet50|Magface| 84.0%|  81.3%|
+|DNNet|ResNet50|Mag+Focal| 84.5%| 81.6%|
+
+# Test lambda_g in Magface
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 32, lambda_g = 20
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Magface| 86.0%|  84.0%|
+|DNNet|ResNet50|Mag+Soft| 84.9%| 83.4% |
+|DNNet|ResNet50|Mag+Focal| 86.2%| 84.0%|
+|DNNet|ResNet50|Mag+Focal+Soft| 86.3%|  82.0% |
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 32, lambda_g = 15
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Magface| 86.5%|  83.8%|
+|DNNet|ResNet50|Mag+Soft| 85.8%| 81.2% |
+|DNNet|ResNet50|Mag+Focal| 85.3%| 82.7%|
+|DNNet|ResNet50|Mag+Focal+Soft| 85.2%|  81.4% |
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 32, lambda_g = 10
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Magface| 85.3%|  83.3%|
+|DNNet|ResNet50|Mag+Soft| 85.2%| 81.8% |
+|DNNet|ResNet50|Mag+Focal| 85.3%| 82.5%|
+|DNNet|ResNet50|Mag+Focal+Soft| 85.1%| 81.7% |
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 32, lambda_g = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Magface| 86.6%|  84.6%|
+|DNNet|ResNet50|Mag+Soft| 85.1%| 81.8% |
+|DNNet|ResNet50|Mag+Focal| 86.5%| 85.1%|
+|DNNet|ResNet50|Mag+Focal+Soft| 84.9%| 81.1% |
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc|
+|----|------|-----|-----|----|
+|DNNet|ResNet50|Magface| 86.6%|  85.1%|
+|DNNet|ResNet50|Mag+Soft|86.2%| 82.4% |
+|DNNet|ResNet50|Mag+Focal| 85.6%| 82.7%|
+|DNNet|ResNet50|Mag+Focal+Soft| 84.5%| 82.5% |
