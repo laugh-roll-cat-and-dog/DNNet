@@ -8,10 +8,12 @@ import torch
 import torch.nn as nn
 import torchvision.models as models
 import torch.nn.functional as F
+import numpy as np
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, roc_curve
 
 
-model_file = "byol_coco_res152_arc_network_b32.pt"
-output_file = "pred_byol_coco_res152_DAM_arc_b32.csv"
+model_file = "byol_coco_res152_magfocalsoft_network_b16.pt"
+output_file = "pred_byol_coco_res152_DAM_magfocalsoft_b16.csv"
 
 
 IMAGE_PATH = os.path.join('pet_biometric_challenge_2022', 'train', 'images')
@@ -154,7 +156,6 @@ class Network(nn.Module):
     def __init__(self, embedding_dim=1024):
         super().__init__()
         resnet = models.resnet152()
-        resnet.load_state_dict((torch.load("pet_biometric_challenge_2022/byol_res152.pt", map_location=torch.device('cuda'))))
         self.backbone = nn.Sequential(*list(resnet.children())[:-2])
 
         self.extra_layers = nn.Sequential(
@@ -209,10 +210,62 @@ with torch.no_grad():
             result.append((img1_path[i], img2_path[i], labels[i], similarity[i]))
 
 
-pred_df = pd.DataFrame(result, columns=['imageA', 'imageB', 'labels', 'similarity'])
+df = pd.DataFrame(result, columns=['imageA', 'imageB', 'labels', 'similarity'])
 for col in ['labels', 'similarity']:
-    pred_df[col] = pred_df[col].astype(str) \
+    df[col] = df[col].astype(str) \
                     .str.replace('tensor\(', '', regex=True) \
                     .str.replace('\)', '', regex=True)
 
-pred_df.to_csv(f"{output_file}")
+df.to_csv(f"result_csv/{output_file}")
+
+df['labels'] = df['labels'].astype(float)
+df['similarity'] = df['similarity'].astype(float)
+y_true = pd.to_numeric(df['labels'])
+y_score = pd.to_numeric(df['similarity'])
+
+
+auc = roc_auc_score(y_true, y_score)
+print(f"ROC AUC Score: {auc:.4f}")
+
+
+fpr, tpr, thresholds = roc_curve(y_true, y_score)
+
+best_idx = (tpr - fpr).argmax()
+best_threshold = thresholds[best_idx]
+print(f"Best threshold: {best_threshold:.4f}")
+
+
+df['pred'] = (df['similarity'] >= best_threshold).astype(int)
+
+
+print("Accuracy:", accuracy_score(df['labels'], df['pred']))
+print("Precision:", precision_score(df['labels'], df['pred']))
+print("Recall:", recall_score(df['labels'], df['pred']))
+print("F1 Score:", f1_score(df['labels'], df['pred']))
+
+print('-----------------------------------------------------------\nERR:')
+
+fnr = 1 - tpr
+
+abs_diffs = np.abs(fpr - fnr)
+eer_idx = np.nanargmin(abs_diffs)
+eer_threshold = thresholds[eer_idx]
+eer = fpr[eer_idx] 
+
+print(f"EER: {eer:.4f}")
+print(f"EER Threshold: {eer_threshold:.4f}")
+
+
+y_pred = (y_score >= eer_threshold).astype(int)
+
+# --- Compute metrics ---
+acc = accuracy_score(y_true, y_pred)
+prec = precision_score(y_true, y_pred)
+rec = recall_score(y_true, y_pred)
+f1 = f1_score(y_true, y_pred)
+
+print("\nPerformance at EER Threshold:")
+print(f"Accuracy : {acc:.4f}")
+print(f"Precision: {prec:.4f}")
+print(f"Recall   : {rec:.4f}")
+print(f"F1 Score : {f1:.4f}")
