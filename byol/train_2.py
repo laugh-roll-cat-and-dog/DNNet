@@ -11,17 +11,16 @@ from torch.utils.data import DataLoader, Dataset
 from byol import BYOL
 import pytorch_lightning as pl
 
-# test model, a resnet 50
 torch.set_float32_matmul_precision("high")
 
-resnet = models.resnet152()
+resnet = models.resnet50()
 
 # constants
 
 BATCH_SIZE = 32
 EPOCHS     = 300
 LR         = 3e-4
-NUM_GPUS   = 1
+NUM_GPUS   = 6
 IMAGE_SIZE = 256
 IMAGE_EXTS = ['.jpg', '.png', '.jpeg']
 NUM_WORKERS = 8
@@ -101,8 +100,8 @@ trainer = pl.Trainer(
     max_epochs = EPOCHS,
     accumulate_grad_batches = 1,
     sync_batchnorm = True,
-    # strategy="ddp_find_unused_parameters_true"
+    strategy="ddp_find_unused_parameters_true"
 )
 
 trainer.fit(model, train_loader)
-torch.save(model.learner.net.state_dict(), "byol_res152.pt")
+torch.save(model.learner.net.state_dict(), "byol_res50.pt")

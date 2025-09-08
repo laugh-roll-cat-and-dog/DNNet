@@ -157,5 +157,64 @@ epoch = 200, dataset 7530 images, 1500 id, batch size = 32, lambda_g(magface) = 
 |DNNet|ResNet152|Mag+Focal|84.6%| 81.5%| 0.8950|
 |DNNet|ResNet152|Mag+Focal+Soft| 83.1%| 80.9% |0.8849 |
 
-# ResNet-152 from BYOL
+# ResNet-152 from BYOL Coco 300 epoch
 
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet152|Arcface|88.9%| 88.1%| 0.9318|
+|DNNet|ResNet152|Arc+Soft| 90.7%| 88.9% | 0.9465|
+|DNNet|ResNet152|Arc+Focal|89.4%| 87.4% | 0.9396|
+|DNNet|ResNet152|Arc+Focal+Soft| 90.0%|88.6% |0.9383|
+|DNNet|ResNet152|Magface| 89.0%| 88.0%| 0.9389|
+|DNNet|ResNet152|Mag+Soft| 88.2%| 87.0% | 0.9325 |
+|DNNet|ResNet152|Mag+Focal|88.8%| 88.3%| 0.9442|
+|DNNet|ResNet152|Mag+Focal+Soft|90.1%| 87.9% | 0.9465|
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 32, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet152|Arcface| 88.8%|  86.8%| 0.9321|
+|DNNet|ResNet152|Arc+Soft| 88.8%| 87.4% | 0.9361|
+|DNNet|ResNet152|Arc+Focal|88.6%| 85.5% | 0.9304|
+|DNNet|ResNet152|Arc+Focal+Soft| 90.2%| 86.7% | 0.9384|
+|DNNet|ResNet152|Magface| 87.9%| 85.6%| 0.9240|
+|DNNet|ResNet152|Mag+Soft| 88.3%| 85.5% |0.9266 |
+|DNNet|ResNet152|Mag+Focal|88.7%| 86.2% |  0.9294|
+|DNNet|ResNet152|Mag+Focal+Soft|87.9%| 85.0% | 0.9140|
+
+# ResNet-152 from BYOL Coco 300 epoch
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Arcface|%| %| |
+|DNNet|ResNet50|Arc+Soft| %| % | |
+|DNNet|ResNet50|Arc+Focal|%| % | |
+|DNNet|ResNet50|Arc+Focal+Soft| %|% ||
+|DNNet|ResNet50|Magface| %| %| |
+|DNNet|ResNet50|Mag+Soft| %| % |  |
+|DNNet|ResNet50|Mag+Focal|%| %| |
+|DNNet|ResNet50|Mag+Focal+Soft|%| % | |
+
+
+
+
+
+## template
+
+epoch = 200, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet152|Arcface| %|  %||
+|DNNet|ResNet152|Arc+Soft| %| % | |
+|DNNet|ResNet152|Arc+Focal|%| % | |
+|DNNet|ResNet152|Arc+Focal+Soft| %|% ||
+|DNNet|ResNet152|Magface| %| %| |
+|DNNet|ResNet152|Mag+Soft| %| % |  |
+|DNNet|ResNet152|Mag+Focal|%| %| |
+|DNNet|ResNet152|Mag+Focal+Soft|%| % | |
