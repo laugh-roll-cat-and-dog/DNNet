@@ -485,6 +485,6 @@ def train():
         scheduler.step()
 
     torch.save(model.state_dict(), os.path.join("pet_biometric_challenge_2022", "byol_coco_res152_magfocalsoft_network_b32.pt"))
-    torch.save(MagLinear.state_dict(), os.path.join("pet_biometric_challenge_2022", "byol_coco_magfocalsoft_magface_b32.pt"))
+    torch.save(mag_linear.state_dict(), os.path.join("pet_biometric_challenge_2022", "byol_coco_magfocalsoft_magface_b32.pt"))
 
 train()

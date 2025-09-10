@@ -17,6 +17,9 @@ import numpy as np
 IMAGE_PATH = os.path.join('pet_biometric_challenge_2022', 'train', 'images')
 DATA_PATH = os.path.join('pet_biometric_challenge_2022', 'train')
 CSV_PATH = os.path.join(DATA_PATH, '4500up_dataset.csv')
+pretrained_model = "byol_res50.pt"
+output_model = "byol_coco_res50_magsoft_network_b16.pt"
+head = "byol_50coco_magsoft_magface_b16.pt"
 
 
 df = pd.read_csv(CSV_PATH)
@@ -149,8 +152,8 @@ class DualAttentionModule(nn.Module):
 class Network(nn.Module):
     def __init__(self, embedding_dim=1024):
         super().__init__()
-        resnet = models.resnet152()
-        resnet.load_state_dict((torch.load("pet_biometric_challenge_2022/byol_res152.pt", map_location=torch.device('cuda'))))
+        resnet = models.resnet50()
+        resnet.load_state_dict((torch.load(f"pet_biometric_challenge_2022/{pretrained_model}", map_location=torch.device('cuda'))))
         self.backbone = nn.Sequential(*list(resnet.children())[:-2])
 
         self.extra_layers = nn.Sequential(
@@ -476,7 +479,7 @@ def train():
             
         scheduler.step()
 
-    torch.save(model.state_dict(), os.path.join("pet_biometric_challenge_2022", "byol_coco_res152_mag_network_b32.pt"))
-    torch.save(mag_linear.state_dict(), os.path.join("pet_biometric_challenge_2022", "byol_coco_mag_magface_b32.pt"))
+    torch.save(model.state_dict(), os.path.join("pet_biometric_challenge_2022", output_model))
+    torch.save(mag_linear.state_dict(), os.path.join("pet_biometric_challenge_2022", head))
 
 train()

@@ -185,7 +185,7 @@ epoch = 100, dataset 7530 images, 1500 id, batch size = 32, lambda_g(magface) = 
 |DNNet|ResNet152|Mag+Focal|88.7%| 86.2% |  0.9294|
 |DNNet|ResNet152|Mag+Focal+Soft|87.9%| 85.0% | 0.9140|
 
-# ResNet-152 from BYOL Coco 300 epoch
+# ResNet-50 from BYOL Coco 300 epoch
 
 epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
 
@@ -199,9 +199,6 @@ epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 
 |DNNet|ResNet50|Mag+Soft| %| % |  |
 |DNNet|ResNet50|Mag+Focal|%| %| |
 |DNNet|ResNet50|Mag+Focal+Soft|%| % | |
-
-
-
 
 
 ## template
