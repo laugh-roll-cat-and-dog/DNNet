@@ -185,20 +185,97 @@ epoch = 100, dataset 7530 images, 1500 id, batch size = 32, lambda_g(magface) = 
 |DNNet|ResNet152|Mag+Focal|88.7%| 86.2% |  0.9294|
 |DNNet|ResNet152|Mag+Focal+Soft|87.9%| 85.0% | 0.9140|
 
+epoch = 200, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet152|Arcface| 90.0%|  87.0%| 0.9435|
+|DNNet|ResNet152|Arc+Soft| 89.3%| 86.5% | 0.9355|
+|DNNet|ResNet152|Arc+Focal|89.6%| 88.2% | 0.9413|
+|DNNet|ResNet152|Arc+Focal+Soft| 88.9%|86.1% |0.9266|
+|DNNet|ResNet152|Magface| 88.7%| 86.8%| 0.9378|
+|DNNet|ResNet152|Mag+Soft| 88.8%| 87.6% | 0.9365 |
+|DNNet|ResNet152|Mag+Focal|90.5%| 89.1%| 0.9507|
+|DNNet|ResNet152|Mag+Focal+Soft|89.0%| 86.1%| 0.9199|
+
+# ResNet-152 from BYOL Coco 300 epoch test lambda_g = 0.5
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet152|Magface| 86.4%| 82.5%| 0.8777|
+|DNNet|ResNet152|Mag+Soft| 89.6%| 88.3% | 0.9447|
+|DNNet|ResNet152|Mag+Focal|89.4%| 88.4%| 0.9405|
+|DNNet|ResNet152|Mag+Focal+Soft|87.9%| 85.4% | 0.9193|
+
+epoch = 200, dataset 7530 images, 1500 id, batch size = 16
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet152|Magface| 86.3%| 84.3%| 0.9097|
+|DNNet|ResNet152|Mag+Soft| 88.6%| 86.4% | 0.9162 |
+|DNNet|ResNet152|Mag+Focal|90.0%| 88.0%| 0.9429|
+|DNNet|ResNet152|Mag+Focal+Soft|90.1%| 87.6% | 0.9423|
+
 # ResNet-50 from BYOL Coco 300 epoch
 
 epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
 
 | NN | Backbone | Loss | Acc  | Err Acc| AUC |
 |----|------|-----|-----|----|---|
-|DNNet|ResNet50|Arcface|%| %| |
-|DNNet|ResNet50|Arc+Soft| %| % | |
-|DNNet|ResNet50|Arc+Focal|%| % | |
-|DNNet|ResNet50|Arc+Focal+Soft| %|% ||
-|DNNet|ResNet50|Magface| %| %| |
-|DNNet|ResNet50|Mag+Soft| %| % |  |
-|DNNet|ResNet50|Mag+Focal|%| %| |
-|DNNet|ResNet50|Mag+Focal+Soft|%| % | |
+|DNNet|ResNet50|Arcface|88.8%| 87.1%| 0.9432|
+|DNNet|ResNet50|Arc+Soft| 90.6%| 89.9% | 0.9554|
+|DNNet|ResNet50|Arc+Focal|89.8%| 88.9% | 0.9422|
+|DNNet|ResNet50|Arc+Focal+Soft| 89.4%|89.1% |0.9532|
+|DNNet|ResNet50|Magface| 88.4%| 87.1%| 0.9450|
+|DNNet|ResNet50|Mag+Soft| 89.7%| 88.4% | 0.9569 |
+|DNNet|ResNet50|Mag+Focal|88.6%| 85.9%|0.9369 |
+|DNNet|ResNet50|Mag+Focal+Soft|89.1%|87.8% | 0.9487|
+
+epoch = 200, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Arcface| 89.6%|  88.0%|0.9501|
+|DNNet|ResNet50|Arc+Soft| 90.1%| 88.7% | 0.9526|
+|DNNet|ResNet50|Arc+Focal|89.9%| 89.1% | 0.9498|
+|DNNet|ResNet50|Arc+Focal+Soft| 90.1%|88.1% |0.9561|
+|DNNet|ResNet50|Magface| 88.6%| 87.2%| 0.9484|
+|DNNet|ResNet50|Mag+Soft| 88.4%| 87.2% |  0.9443|
+|DNNet|ResNet50|Mag+Focal|88.8%| 88.2%| 0.9498|
+|DNNet|ResNet50|Mag+Focal+Soft|88.6%| 87.6%| 0.9486|
+
+# ResNet-50 from BYOL Coco 300 epoch test lambda_g = 0.5
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Magface| 89.3%| 88.6% | 0.9510 |
+|DNNet|ResNet50|Mag+Soft| 89.5%| 88.3% |  0.9483|
+|DNNet|ResNet50|Mag+Focal|88.0%| 87.4%| 0.9414|
+|DNNet|ResNet50|Mag+Focal+Soft|90.3%| 88.3% | 0.9491|
+
+epoch = 200, dataset 7530 images, 1500 id, batch size = 16
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Magface| 89.3%| 88.6%| 0.9495|
+|DNNet|ResNet50|Mag+Soft| 89.1%| 87.9% | 0.9474 |
+|DNNet|ResNet50|Mag+Focal|88.9%| 87.6%|0.9489 |
+|DNNet|ResNet50|Mag+Focal+Soft|89.0%| 87.5% | 0.9493|
+
+# ResNet-50 from BYOL Coco 300 epoch
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Magface| 88.2%| 86.1%| 0.9398| 1
+|DNNet|ResNet50|Magface| 89.9%| 88.8% | 0.9523 | 0.5
+|DNNet|ResNet50|Magface|89%| 87.3%| 0.9438| 0.1
+|DNNet|ResNet50|Magface|89.7%| 87.5% |0.9473 | 0.01
 
 
 ## template

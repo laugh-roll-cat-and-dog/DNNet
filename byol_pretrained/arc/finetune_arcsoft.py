@@ -18,8 +18,8 @@ IMAGE_PATH = os.path.join('pet_biometric_challenge_2022', 'train', 'images')
 DATA_PATH = os.path.join('pet_biometric_challenge_2022', 'train')
 CSV_PATH = os.path.join(DATA_PATH, '4500up_dataset.csv')
 pretrained_model = "byol_res50.pt"
-output_model = "byol_coco_res50_arcsoft_network_b16.pt"
-head = "byol_50coco_arcsoft_arcface_b16.pt"
+output_model = "byol_coco_res50_arcsoft_network_b16_200.pt"
+head = "byol_coco_arcsoft_arcface_b16_200.pt"
 
 
 df = pd.read_csv(CSV_PATH)
@@ -394,10 +394,10 @@ class FocalLoss(nn.Module):
         return loss
 
 def lr_lambda(epoch):
-    if epoch < 50:
+    if epoch < 100:
         return 1.0
     else:
-        return max(0.0, 1.0 - (epoch - 50) / 50)
+        return max(0.0, 1.0 - (epoch - 100) / 100)
 
 # Magface parameter 
 l_a = 10
@@ -433,7 +433,7 @@ def train():
 
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
 
-    num_epochs = 100
+    num_epochs = 200
 
     for epoch in range(num_epochs):
         for i, (img, dog_id) in enumerate(train_loader):
