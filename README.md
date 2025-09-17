@@ -277,6 +277,51 @@ epoch = 100, dataset 7530 images, 1500 id, batch size = 16
 |DNNet|ResNet50|Magface|89%| 87.3%| 0.9438| 0.1
 |DNNet|ResNet50|Magface|89.7%| 87.5% |0.9473 | 0.01
 
+# ResNet-50 from BYOL Coco 300 epoch lr = 2e-4
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Arcface| 90.8%|  90.2%|0.9562|
+|DNNet|ResNet50|Arc+Soft| 91.0%| 89.4% | 0.9594|
+|DNNet|ResNet50|Arc+Focal|91.0%|  89.7%|0.9568|
+|DNNet|ResNet50|Arc+Focal+Soft| 91.7%|90.4% |0.9591|
+|DNNet|ResNet50|Magface| 90.3%| 89.0%| 0.9565|
+|DNNet|ResNet50|Mag+Soft| 90.0%| 88.8% | 0.9592 |
+|DNNet|ResNet50|Mag+Focal|90.6%| 89.7%| 0.9595|
+|DNNet|ResNet50|Mag+Focal+Soft|90.6%| 87.9% | 0.9556|
+
+# ResNet-50 from BYOL Coco 300 epoch lr = 3e-4
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Arcface| 90.9%|  89.3%|0.9568|
+|DNNet|ResNet50|Arc+Soft| 91.0%| 89.6% |0.9624|
+|DNNet|ResNet50|Arc+Focal|90.4%| 90.1% | 0.9627|
+|DNNet|ResNet50|Arc+Focal+Soft| 91.1%|90.1% |0.9593|
+|DNNet|ResNet50|Magface| 90.1%| 89.5%|0.9536 |
+|DNNet|ResNet50|Mag+Soft| 90.7%| 89.4% | 0.9557 |
+|DNNet|ResNet50|Mag+Focal|90.8%| 89.1%| 0.9578|
+|DNNet|ResNet50|Mag+Focal+Soft|91.5%| 89.0% | 0.9575|
+
+# ResNet-50 from BYOL Coco 300 epoch lr = 4e-4
+
+epoch = 100, dataset 7530 images, 1500 id, batch size = 16, lambda_g(magface) = 5
+
+| NN | Backbone | Loss | Acc  | Err Acc| AUC |
+|----|------|-----|-----|----|---|
+|DNNet|ResNet50|Arcface| 90.2%|  88.9%|0.9543|
+|DNNet|ResNet50|Arc+Soft| 90.7%|  89.8%|0.9568|
+|DNNet|ResNet50|Arc+Focal|90.6%|  88.0%|0.9607|
+|DNNet|ResNet50|Arc+Focal+Soft| 90.2%|  89.3%|0.9578|
+|DNNet|ResNet50|Magface| 91.0%| 89.1%|0.9558 |
+|DNNet|ResNet50|Mag+Soft| 90.0%| 89.6% |  0.9553|
+|DNNet|ResNet50|Mag+Focal|92.4%| 90.8%| 0.9667|
+|DNNet|ResNet50|Mag+Focal+Soft|91.1%| 90.0% | 0.9608|
+
 
 ## template
 
